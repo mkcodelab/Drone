@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="main.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+   <!-- drone steering game, you are an robot with AI whos primal target is to
+   buid a base and terraform habitat for your masters (those who created you) -->
+
+   <!-- steering
+    W - accelerate
+    S - decelerate / brakes
+    D - strife RIGHT
+    A - strife LEFT
+    SPACEBAR - turn the engine on / off
+    after clicking, it stops spinning and gets into "UI mode"
+    SHIFT - activate / deactivate booster
+    Middle Mouse btn SHOOT / ACTIVATE / DRILL / COŚTAM
+  -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAN-Ion Engines DRONE V1</title>
+  </head>
+
+  <body>
+    <div class="glass"></div>
+    <div class="crosshair"></div>
+    <div id="dashboard">
+      <div class="info" id="velocity">velocity: 0</div>
+      <div class="info" id="status">Status:</div>
+      <div class="info" id="booster">Booster: OFF</div>
+      <button class="btn" id="menu">Menu</button>
+     
+      <button class="btn" style="display: none;" id="windshield">Windshield</button>
+    </div>
+
+
+    <script src="node_modules\three\build\three.js"></script>
+    <script src="OrbitControls.js"></script>
+    <script src="FlyControls.js"></script>
+    <script src="audio.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
