@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="main.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+   <!-- Drone steering game, you are an robot with AI whos primal target is to
+   buid a base and terraform habitat for your masters (those who created you).
+  Your primal vitality aspects are energy and fuel, also hull integrity is cruicial
+  for survival in hostile environment. The planet (YTS-4571-Me) is a gas giant,
+  with dense atmosphere but in upper parts of atmosphere, there is pressure that can
+  sustain life. Planet itself
+  is abundant in various substances as gases and weird liquid/gas state materials -->
+
+   <!-- steering
+    W - accelerate
+    S - decelerate / brakes
+    D - strife RIGHT
+    A - strife LEFT
+    SPACEBAR - turn the engine on / off
+    after clicking, it stops spinning and gets into "UI mode"
+    SHIFT - activate / deactivate booster
+    Middle Mouse btn SHOOT / ACTIVATE / DRILL / COŚTAM
+  -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAN-Ion Engines DRONE V1</title>
+  </head>
+
+  <body>
+
+    <div class="inventory" id="inventory">
+      <p>Main system: </p>
+      <div class="inv default-window" id="inv">
+        <p>Inventory</p>
+
+      </div>
+      <div class="eq default-window" id="eq">
+        <p>Equipement</p>
+      </div>
+    </div>
+
+    <div class="glass fullScreen"></div>
+    <div class="vignette fullScreen" id="vignette"></div>
+    <div class="crosshair"></div>
+    <div class="screenEffect fullScreen" id="screenEffect"></div>
+
+
+    <div id="dashboard">
+
+
+      <div class="info" id="velocity">velocity: 0</div>
+      <div class="info" id="status">Status:</div>
+      <div class="info" id="energy">Energy: 100 %</div>
+      <div class="info" id="booster">Booster: OFF</div>
+      <div class="info" id="altitude">Altitude: </div>
+      <div class="info" id="pressure">Pressure: 100kpa</div>
+      <div class="info" id="coords">Coordinates: X: 0, Y: 0</div>
+      <!-- <button class="btn" id="menu">Menu</button> -->
+     
+      <button class="btn" style="display: none;" id="windshield">Windshield</button>
+    </div>
+
+
+
+    <script src="node_modules\three\build\three.js"></script>
+    <script src="OrbitControls.js"></script>
+    <script src="materials.js"></script>
+    <script src="FlyControls.js"></script>
+    <script src="audio.js"></script>
+    <script type="module" src="./main.js"></script>
+    <!-- <script src="clouds.js"></script> -->
+  </body>
+</html>

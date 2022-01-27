@@ -1,6 +1,9 @@
 let engineOff = new Audio("generic_sounds/acid5.wav");
 let engineOn = new Audio("generic_sounds/teleport.wav");
-let blast = new Audio("generic_sounds/acid6.wav")
+let blast = new Audio("generic_sounds/acid6.wav");
+let menu = new Audio("generic_sounds/itempick1.wav");
+let windAmbient = new Audio("generic_sounds/wind1.wav");
+windAmbient.loop = true;
 
 function playAudio(audio) {
   audio.play();
@@ -19,9 +22,14 @@ let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
 // master gain
 let masterGain = audioCtx.createGain();
-masterGain.gain.value = 0.05;
+masterGain.gain.value = 0.1;
 masterGain.connect(audioCtx.destination);
+//gain of the engine
+let engineGain = audioCtx.createGain();
+engineGain.gain.value = 0.7;
+engineGain.connect(audioCtx.destination);
 
+let boosterRandomFreq = 100;
 
 //  filters
 let from = 300;
@@ -32,21 +40,21 @@ let filter = audioCtx.createBiquadFilter();
 filter.type = 'bandpass';
 filter.frequency.value = geometricMean;
 filter.Q.value = geometricMean / (to - from);
-filter.connect(masterGain)
+filter.connect(engineGain)
 
 let biquadFilter = audioCtx.createBiquadFilter();
 console.log(biquadFilter);
 biquadFilter.frequency = 400;
-biquadFilter.connect(masterGain);
+biquadFilter.connect(engineGain);
 
 let oscillator1 = null;
 let oscillator2 = null;
 let oscillator3 = null;
 
 function updateEngineFrequency (freq) {
-  oscillator1.frequency.value = (freq + Math.floor(Math.random() * 100)) / 4
-  oscillator2.frequency.value = (freq + Math.floor(Math.random() * 50)) / 3
-  oscillator3.frequency.value = (freq + Math.floor(Math.random() * 50)) / 2
+  oscillator1.frequency.value = (freq + Math.floor(Math.random() * boosterRandomFreq)) / 2
+  oscillator2.frequency.value = (freq + Math.floor(Math.random() * 50)) 
+  oscillator3.frequency.value = (freq + Math.floor(Math.random() * 50))
 }
 
 function createEngineSound() {

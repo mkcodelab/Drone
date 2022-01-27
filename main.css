@@ -19,6 +19,7 @@ body {
   font-family: 'Orbitron', sans-serif;
   color: rgba(100, 255, 0);
   cursor: crosshair;
+  user-select: none;
 }
 #dashboard {
   display: flex;
@@ -30,9 +31,10 @@ body {
   left: 0;
   z-index: 10;
   width: 20%;
-  height: 200px;
+  /* height: 200px; */
   border: 1px solid var(--main-col);
   background: var(--bg-col);
+  border-radius: 10px;
 }
 .info {
   padding: 5px;
@@ -40,6 +42,7 @@ body {
   margin-top: 2.5px;
   margin-bottom: 2.5px;
   background: var(--bg-col);
+  border-radius: 10px;
 }
 .crosshair {
   width: 20px;
@@ -67,14 +70,18 @@ body {
   color: yellow;
   background: var(--bg-active)
 }
-.glass {
-  
+.fullScreen {
   width: 100%;
   height: 100%;
   position: absolute;
-  z-index: 5;
   top: 0;
   left: 0;
+  pointer-events: none;
+}
+
+.glass {
+  display: none;
+  z-index: 5;
   background: rgba(255, 255, 100, 0.2);
   border-bottom: 5px solid rgb(255, 255, 100, 0.5);
   /* backdrop-filter: hue-rotate(15deg); */
@@ -82,8 +89,41 @@ body {
   
   transform: translateY(-100%);
   transition: transform 2s ease-in-out;
-  pointer-events: none;
+}
+.default-window {
+  border: 1px solid var(--main-col);
+  background: var(--bg-col);
+  padding: 5px;
+  margin: 5px;
+  margin-top: 2.5px;
+  margin-bottom: 2.5px;
 }
 .closed {
   transform: translateY(0);
+}
+.inventory {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -200%);
+  width: 50%;
+  height: 80%;
+  border: 1px solid var(--main-col);
+  background: var(--bg-col);
+  backdrop-filter: blur(5px);
+  z-index: 100;
+  transition: .2s all ease;
+}
+.inv-open {
+  transform: translate(-50%, -50%)
+
+}
+.vignette {
+  background-image: url("vignette.png");
+  background-position: center;
+  opacity: 0.5;
+}
+.screenEffect {
+  /* dynamically change color due to altitude change */
+  background-color: hsla(120, 100%, 50%, 0.01);
 }
